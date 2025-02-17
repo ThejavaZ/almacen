@@ -13,7 +13,7 @@ if(isset($_GET['txtID'])){
         $existencia = $registro["existencia"];
         $precio = $registro["precio"];
         $disponible = $registro["disponible"];
-        $foto_actual = "../../temp/materials/" . $txtID . ".png";
+        $foto_actual = "../../temp/materials/img/" . $txtID . ".png";
     } else {
         $mensaje = "Material no encontrado.";
         header("Location: index.php?mensaje=".$mensaje);
@@ -31,7 +31,7 @@ if ($_POST) {
 
     // Verificar si se ha subido una nueva foto
     if (!empty($_FILES['foto']['name'])) {
-        $directorio = "../../temp/materials/";
+        $directorio = "../../temp/materials/img/";
         $archivo_tmp = $_FILES['foto']['tmp_name'];
         $nombre_archivo = $txtID . ".png";
         $ruta_destino = $directorio . $nombre_archivo;
@@ -116,16 +116,14 @@ if ($_POST) {
         <br>
         <img src="
         <?php 
-            echo file_exists($foto_actual) ? $foto_actual : "../../temp/materials/no.png";
+            echo file_exists($foto_actual) ? $foto_actual : "../../temp/materials/img/no.png";
         ?>" 
              class="img-fluid rounded-top" alt="imagen usuario" 
              style="width: 100px; height: 100px;">
         <div class="mb-3">
             <input type="file" class="form-control" name="foto" id="foto" />
         </div>
-        <div>
-            <a id="" href="javascript:borrar(<?php echo $txtID; ?>);" class="btn btn-danger">Eliminar foto</a>
-        </div>
+
     </div>
 
     <div class="mb-3">

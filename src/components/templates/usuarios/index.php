@@ -32,10 +32,7 @@ $usuarios=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 <div class="card">
     <div class="card-header">
         <a name="" id="" class="btn btn-primary" href="crear.php" role="button">
-            Agregar usuarios
-        </a>
-        <a name="" id="" class="btn btn-primary" href="reporte.php" role="button">
-            Generar Reporte
+            Agregar
         </a>
     </div>
     <div class="card-body">

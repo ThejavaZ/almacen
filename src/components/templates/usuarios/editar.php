@@ -137,9 +137,6 @@ if ($_POST) {
         <div class="mb-3">
             <input type="file" class="form-control" name="foto" id="foto" />
         </div>
-        <div>
-            <a id="" href="javascript:borrar(<?php echo $txtID; ?>);" class="btn btn-danger">Eliminar foto</a>
-        </div>
     </div>
 
     <div class="mb-3">

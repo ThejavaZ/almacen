@@ -2,9 +2,8 @@
 include("../../../../bd.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = $_POST['usuario'];
-    $cuenta = $_POST['cuenta'];
-    $clave = password_hash($_POST['clave'], PASSWORD_DEFAULT); // Cifrar la contraseña
+    $empleado = $_POST['empleado'];
+    $domicilio = $_POST['domicilio'];
     $nivel = $_POST['nivel'];
     $idioma = $_POST['idioma'];
     $autorizado = $_POST['autorizado'];

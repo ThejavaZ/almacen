@@ -71,7 +71,7 @@ if(!isset($_SESSION['usuario'])) {
                                 </svg> Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo $url_base; ?>src/components/templates/employees/"><svg
+                            <a class="nav-link" href="<?php echo $url_base; ?>src/components/templates/empleados/"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-person" viewBox="0 0 16 16">
                                     <path

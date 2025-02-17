@@ -3,7 +3,7 @@ include("../../../../bd.php");
 
 if(isset( $_GET['txtID'] )){
 
-    $route_photo = "../../temp/materials/" . $_GET['txtID'] . ".png";
+    $route_photo = "../../temp/materials/img/" . $_GET['txtID'] . ".png";
     if (file_exists($route_photo)) {
         unlink($route_photo);
     }
@@ -56,12 +56,12 @@ $materiales=$sentencia->fetchAll(PDO::FETCH_ASSOC);
                         <td scope="row"><?php echo $registro['id_material']; ?></td>
                         <td>
                             <img src="<?php 
-                                if (file_exists(("../../temp/materials/" . $registro['id_material'] . ".png"))) {
-                                    echo ("../../temp/materials/" . $registro['id_material'] . ".png");
+                                if (file_exists(("../../temp/materials/img/" . $registro['id_material'] . ".png"))) {
+                                    echo ("../../temp/materials/img/" . $registro['id_material'] . ".png");
                                 }
                                 else
                                 {
-                                    echo "../../temp/materials/no.png";
+                                    echo "../../temp/materials/img/no.png";
                                 }
                             ?>" class="img-fluid rounded-top" alt="imagen material" style="width: 100px; height: 100px;">
                         </td>

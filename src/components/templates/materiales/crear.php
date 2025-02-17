@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Paso 3: Subir la imagen con el ID del usuario
     if (!empty($_FILES['foto']['name'])) {
-        $directorio = "../../temp/materials/";
+        $directorio = "../../temp/materials/img/";
         $archivo_tmp = $_FILES['foto']['tmp_name'];
         $nombre_archivo = $id_usuario . ".png";
         $ruta_destino = $directorio . $nombre_archivo;

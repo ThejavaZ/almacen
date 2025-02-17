@@ -1,75 +1,88 @@
-SHOW DATABASES;
-DROP DATABASE almacen;
-CREATE DATABASE almacen;
-USE almacen;
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versión del servidor:         10.10.2-MariaDB - mariadb.org binary distribution
+-- SO del servidor:              Win64
+-- HeidiSQL Versión:             12.10.0.7000
+-- --------------------------------------------------------
 
-CREATE TABLE empleados(
-id_empleado BIGINT PRIMARY KEY auto_increment,
-empleado VARCHAR(40),
-domicilio VARCHAR(50),
-celular VARCHAR(20),
-id_puesto BIGINT,
-activo VARCHAR(1)
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE TABLE puestos(
-id_puesto BIGINT PRIMARY KEY auto_increment,
-puesto VARCHAR(20),
-sueldo DECIMAL(15,2)
-);
 
-CREATE TABLE consultas(
-id_consulta BIGINT PRIMARY KEY auto_increment,
-id_empleado BIGINT,
-id_material BIGINT,
-id_usuario BIGINT,
-fecha DATE,
-cancelada VARCHAR(1)
-);
+-- Volcando estructura de base de datos para almacen
+CREATE DATABASE IF NOT EXISTS `almacen` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci */;
+USE `almacen`;
 
-CREATE TABLE materiales(
-id_material BIGINT PRIMARY KEY auto_increment,
-material VARCHAR(40),
-existencia int,
-precio DECIMAL(15,2),
-disponible VARCHAR(1)
-);
+-- Volcando estructura para tabla almacen.consultas
+CREATE TABLE IF NOT EXISTS `consultas` (
+  `id_consulta` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id_empleado` bigint(20) DEFAULT NULL,
+  `id_material` bigint(20) DEFAULT NULL,
+  `id_usuario` bigint(20) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `cancelada` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`id_consulta`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
-CREATE TABLE usuarios(
-id_usuario BIGINT PRIMARY KEY auto_increment,
-usuario VARCHAR(40),
-cuenta VARCHAR(50),
-clave VARCHAR(128),
-nivel int,
-idioma int,
-autorizado VARCHAR(1)
-);
+-- La exportación de datos fue deseleccionada.
 
--- Insertar datos en la tabla empleados
-INSERT INTO empleados (empleado, domicilio, celular, id_puesto, activo) VALUES
-('Juan Pérez', 'Calle 123, Ciudad', '555-1234', 1, 'S'),
-('María Gómez', 'Avenida 456, Ciudad', '555-5678', 2, 'S'),
-('Carlos Ramírez', 'Boulevard 789, Ciudad', '555-9101', 3, 'N');
+-- Volcando estructura para tabla almacen.empleados
+CREATE TABLE IF NOT EXISTS `empleados` (
+  `id_empleado` bigint(20) NOT NULL AUTO_INCREMENT,
+  `empleado` varchar(40) DEFAULT NULL,
+  `domicilio` varchar(50) DEFAULT NULL,
+  `celular` varchar(20) DEFAULT NULL,
+  `id_puesto` bigint(20) DEFAULT NULL,
+  `activo` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`id_empleado`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Insertar datos en la tabla puestos
-INSERT INTO puestos (puesto, sueldo) VALUES
-('Gerente', 25000.00),
-('Supervisor', 18000.00),
-('Operario', 12000.00);
+-- La exportación de datos fue deseleccionada.
 
--- Insertar datos en la tabla materiales
-INSERT INTO materiales (material, existencia, precio, disponible) VALUES
-('Laptop Dell', 10, 15000.00, 'S'),
-('Teclado Mecánico', 25, 1200.00, 'S'),
-('Monitor 24"', 15, 3500.00, 'N');
+-- Volcando estructura para tabla almacen.materiales
+CREATE TABLE IF NOT EXISTS `materiales` (
+  `id_material` bigint(20) NOT NULL AUTO_INCREMENT,
+  `material` varchar(40) DEFAULT NULL,
+  `existencia` int(11) DEFAULT NULL,
+  `precio` decimal(15,2) DEFAULT NULL,
+  `disponible` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`id_material`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Insertar datos en la tabla usuarios
-INSERT INTO usuarios (usuario, cuenta, clave, nivel, idioma, autorizado) VALUES
-('admin', 'root@gmail.com', SHA2('123',256), 1, 1, 'S'),
-('Javier Armando Sarmiento Gil','jsdash10000@gmail.com',  SHA2('TheJavZs24.UwU_',256), 2, 1, 'S');
+-- La exportación de datos fue deseleccionada.
 
--- Insertar datos en la tabla consultas
-INSERT INTO consultas (id_empleado, id_material, id_usuario, fecha, cancelada) VALUES
-(1, 1, 1, 20240701, 'N'),
-(2, 2, 2, 20240702, 'S'),
-(3, 3, 3, 20240703, 'N');
+-- Volcando estructura para tabla almacen.puestos
+CREATE TABLE IF NOT EXISTS `puestos` (
+  `id_puesto` bigint(20) NOT NULL AUTO_INCREMENT,
+  `puesto` varchar(20) DEFAULT NULL,
+  `sueldo` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`id_puesto`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- La exportación de datos fue deseleccionada.
+
+-- Volcando estructura para tabla almacen.usuarios
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT,
+  `usuario` varchar(40) DEFAULT NULL,
+  `cuenta` varchar(50) DEFAULT NULL,
+  `clave` varchar(128) DEFAULT NULL,
+  `nivel` int(11) DEFAULT NULL,
+  `idioma` int(11) DEFAULT NULL,
+  `autorizado` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- La exportación de datos fue deseleccionada.
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
