@@ -130,7 +130,9 @@ if ($_POST) {
         <br>
         <img src="
         <?php 
-            echo file_exists($foto_actual) ? $foto_actual : "../../temp/users/default.webp";
+            echo file_exists($foto_actual) 
+            ? $foto_actual 
+            : "../../temp/users/img/default.webp";
         ?>" 
              class="img-fluid rounded-top" alt="imagen usuario" 
              style="width: 100px; height: 100px;">

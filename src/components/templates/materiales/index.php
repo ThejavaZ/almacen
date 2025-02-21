@@ -34,6 +34,9 @@ $materiales=$sentencia->fetchAll(PDO::FETCH_ASSOC);
         <a name="" id="" class="btn btn-primary" href="crear.php" role="button">
             Agregar
         </a>
+
+        <a href="reportes.php" class="btn btn-info" role="button">Reporte</a>
+
     </div>
     <div class="card-body">
         <div class="table-responsive-sm">
